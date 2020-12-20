@@ -5,9 +5,13 @@ class Node
 	  @value = value
     @next_node = next_node
   end
+
+  def to_s
+    "#{@value} -> #{@next_node}"
+  end
 end
 
-class LinkedList
+class SinglyLinkedList
   
   attr_accessor :head
   
@@ -16,22 +20,38 @@ class LinkedList
   end
 
   def add(number)
+    pointer = @head
     if @head.value.nil?
       @head = Node.new(number)
     else
-      @head.next_node = Node.new(number)
+      until pointer.next_node.nil?
+        pointer = pointer.next_node
+      end
+      pointer.next_node = Node.new(number)
     end
   end
 
   def get(index)
     return @head if index.zero?
     return nil if @head.value.nil?
-    pointer = @head.next_node
-    while !pointer.nil? && index > 0
+    return nil if index > (length - 1)
+    pointer = @head
+    until pointer.next_node.nil?
       index -= 1
       pointer = pointer.next_node
+      return pointer if index.zero?
     end
     pointer
+  end
+
+  def length
+    counter = 1
+    pointer = @head
+    while pointer.next_node.nil? == false
+      counter += 1
+      pointer = pointer.next_node
+    end
+    counter
   end
   
   def add_at(index, number)
@@ -49,32 +69,4 @@ class LinkedList
     to_remove = get_node(index)
     to_remove.value = to_remove.next_node    
   end
-
-  private
-
-  def get_node(index)
-    return @head if index.zero?
-    node = @head
-    k = 1
-    until node.next_node.nil?
-      return node.next_node if k == index
-      k += 1 
-    end
-  end
 end
-
-
-# list = LinkedList.new
-
-# list.add(3)
-# list.add(5)
-# list.add_at(1, 11)
-# list.add_at(0, 13)
-
-# puts list.get(2)
-# # => 11
-
-# puts list.get(3)
-# # => 5
-
-# head = list.head.value
