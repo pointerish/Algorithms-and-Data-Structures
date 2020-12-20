@@ -1,3 +1,7 @@
+![](https://img.shields.io/badge/Ruby-red)
+![](https://img.shields.io/badge/Algorithms-black)
+![](https://img.shields.io/badge/Data-Structures-blue)
+
 # Algorithms and Data Structures
 
 This topic is a cliché and for a very good reason: it's absolutely essential knowledge. 
