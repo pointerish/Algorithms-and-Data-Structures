@@ -58,7 +58,7 @@ class SinglyLinkedList
     return [] if @head.value.nil?
     arr = [@head.value]
     pointer = @head
-    while pointer.next_node.nil? == false
+    until pointer.next_node.nil?
       pointer = pointer.next_node
       arr << pointer.value
     end
@@ -73,13 +73,17 @@ class SinglyLinkedList
     elsif index == length
       add(number)
     else
-      prev_node = get(index - 1)
-      prev_node.next_node = Node.new(number, get(index + 1))
+      new_node = Node.new(number)
+      previous_node = get(index - 1)
+      next_to_node = get(index)
+      new_node.next_node = next_to_node
+      previous_node.next_node = new_node
     end
   end
   
   def remove(index)
-    to_remove = get_node(index)
-    to_remove.value = to_remove.next_node    
+    previous_node = get(index - 1)
+    next_to_node = get(index + 1)
+    previous_node.next_node = next_to_node
   end
 end
