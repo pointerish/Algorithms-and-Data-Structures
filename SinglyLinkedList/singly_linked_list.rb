@@ -53,15 +53,28 @@ class SinglyLinkedList
     end
     counter
   end
+
+  def values_array
+    return [] if @head.value.nil?
+    arr = [@head.value]
+    pointer = @head
+    while pointer.next_node.nil? == false
+      pointer = pointer.next_node
+      arr << pointer.value
+    end
+    arr
+  end
   
   def add_at(index, number)
-    return nil if index < 0
+    return nil if (index < 0) || (index > length)
     if index.zero?
       @head.next_node = @head
       @head.value = number
+    elsif index == length
+      add(number)
     else
-      prev_node = self.get_node(index - 1)
-      prev_node.next_node = Node.new(number, self.get_node(index + 1))
+      prev_node = get(index - 1)
+      prev_node.next_node = Node.new(number, get(index + 1))
     end
   end
   
