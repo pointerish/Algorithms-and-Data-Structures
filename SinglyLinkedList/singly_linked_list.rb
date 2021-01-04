@@ -34,6 +34,16 @@ class SinglyLinkedList
     end
   end
 
+  def add_from_a(array)
+    if array.class != Array
+      'Argument Must be an Array'
+    end
+    array.each do |item|
+      add(item)
+    end
+    to_a
+  end
+
   def get(index)
     return @head if index.zero?
     return nil if @head.value.nil?
