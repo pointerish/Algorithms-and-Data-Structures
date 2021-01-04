@@ -13,21 +13,24 @@ end
 
 class SinglyLinkedList
   
-  attr_accessor :head
+  attr_accessor :head, :tail
   
   def initialize
     @head = Node.new
+    @tail = nil
   end
 
-  def add(number)
+  def add(obj)
     pointer = @head
     if @head.value.nil?
-      @head = Node.new(number)
+      @head = Node.new(obj)
+      @tail = @head
     else
       until pointer.next_node.nil?
         pointer = pointer.next_node
       end
-      pointer.next_node = Node.new(number)
+      pointer.next_node = Node.new(obj)
+      @tail = pointer.next_node
     end
   end
 
@@ -54,7 +57,7 @@ class SinglyLinkedList
     counter
   end
 
-  def values_array
+  def to_a
     return [] if @head.value.nil?
     arr = [@head.value]
     pointer = @head
@@ -82,6 +85,9 @@ class SinglyLinkedList
   end
   
   def remove(index)
+    if index == (length - 1)
+      @tail = get(index - 1)
+    end
     previous_node = get(index - 1)
     next_to_node = get(index + 1)
     previous_node.next_node = next_to_node
