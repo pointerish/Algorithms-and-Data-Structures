@@ -1,4 +1,4 @@
-require_relative '../SinglyLinkedList/singly_linked_list'
+require_relative '../LinkedList/SinglyLinkedList/singly_linked_list'
 
 class Stack < SinglyLinkedList
 

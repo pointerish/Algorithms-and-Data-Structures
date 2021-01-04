@@ -12,8 +12,7 @@ Why Ruby you might ask? Well, a language it's just a tool to an end and not an e
 
 ## Data Structures
 
-- [Linked Lists](https://en.wikipedia.org/wiki/Linked_list#:~:text=In%20computer%20science%2C%20a%20linked,which%20together%20represent%20a%20sequence.)
-    - [Singly Linked List](https://en.wikipedia.org/wiki/Linked_list#Singly_linked_list)
-
-
-
+- [Linked Lists](./LinkedList/SinglyLinkedList)
+    - [Singly Linked List](./LinkedList/SinglyLinkedList/singly_linked_list.rb)
+- [Stack](./Stack/stack.rb)
+- [Queue](./Queue/queue.rb)
