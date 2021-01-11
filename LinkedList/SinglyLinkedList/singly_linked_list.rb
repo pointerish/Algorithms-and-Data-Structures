@@ -98,6 +98,9 @@ class SinglyLinkedList
     if index == (length - 1)
       @tail = get(index - 1)
     end
+    if index.zero?
+      head = get(index + 1)
+    end
     previous_node = get(index - 1)
     next_to_node = get(index + 1)
     previous_node.next_node = next_to_node
