@@ -16,3 +16,4 @@ Why Ruby you might ask? Well, a language it's just a tool to an end and not an e
     - [Singly Linked List](./LinkedList/SinglyLinkedList/singly_linked_list.rb)
 - [Stack](./Stack/stack.rb)
 - [Queue](./Queue/queue.rb)
+- [MinStack](./MinStack/minstack.rb)
